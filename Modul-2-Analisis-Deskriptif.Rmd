@@ -1,0 +1,347 @@
+---
+title: "Modul 2 - Analisis Deskriptif"
+output:
+  pdf_document: default
+  html_document: default
+date: "2024-09-27"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Modul 2 - Analisis Deskriptif
+
+## Objektif Praktikum
+
+1.  Praktikan mampu memahami analisis desktriptif
+2.  Praktikan mampu melakukan analisis deskriptif
+
+## Review Teori
+
+Secara umum, statistik deskriptif bertujuan untuk mereduksi data sehingga dengan penampilan yang lebih sederhana dapat mendeskripsikan karakteristik data.
+
+## Analisis Deskriptif
+
+Analisis deskriptif adalah suatu cara menggambarkan persoalan berdasarkan data yang dimiliki, yakni dengan cara menata data tersebut sedemikian rupa sehingga dengan mudah dapat dipahami karakteristiknya, dapat dijelaskan dan digunakan untuk keperluan selanjutnya melalui sebuah proses reduksi data. Reduksi data merupakan metode untuk meringkas sekumpulan data ke dalam kumpulan data yang lebih kecil yang menggambarkan pengamatan awal tanpa mengorbankan informasi penting. Analisis statistik deskriptif lebih berhubungan dengan kegiatan pengumpulan, peringkasan, dan penyajian data. Analisis ini melibatkan penggunaan sejumlah kecil angka, tabel, dan grafik untuk menyimpulkan sederet angka yang lebih besar. Secara umum, metode reduksi data dibagi menjadi tiga, yaitu:
+
+### Reduksi Data Dasar
+
+Reduksi data dasar membantu menunjukkan distribusi data secara menyeluruh dan cepat. Reduksi data dasar terbagi menjadi tiga jenis, yaitu:
+
+-   Reduksi Data dalam Nilai Baku
+
+    Reduksi data dengan cara membuat perbandingan antara jumlah kejadian dalam suatu kategori terhadap jumlah kejadian pada kategori lain maupun keseluruhan, baik yang nyata maupun yang potensial terjadi. Bentuk reduksi data dalam nilai baku adalah proporsi, prosentase, rates, dan rasio.
+
+-   Reduksi Data dalam Tabel
+
+    Reduksi data dalam bentuk tabel distribusi frekuensi, yaitu tabel yang meringkas distribusi nilai variabel dengan menunjukkan jumlah kejadian pada setiap kategori nilai variabel.
+
+-   Reduksi Data dalam Chart/Grafik
+
+    yaitu reduksi data dalam bentuk gambar yang dapat menunjukkan chart/grafik yang bermacam-macam sesuai kebutuhan. Namun, chart/grafik yang paling umum digunakan adalah pie chart yang menggunakan permukaan lingkaran untuk menggambarkan distribusi proporsi antar kategori, bar chart yang menggunakan balok untuk menggambarkan distribusi proporsi, histogram yang menggunakan balok untuk menggambarkan distribusi frekuensi data interval rasio, dan frequency polygons yang menggunakan titik untuk menggambarkan distribusi frekuensi data interval rasio.
+
+Secara ringkas, reduksi data dapat dilihat pada tabel di bawah berdasarkan tipe datanya
+
+![](images/clipboard-2985327701.png){width="542"}
+
+### Ukuran Kecenderungan Memusat
+
+Ukuran kecenderungan memusat merupakan ukuran yang menunjukkan pada nilai variabel mana kejadian cenderung terkonsentrasi. Ukuran kecenderungan memusat yang digunakan ada tiga yaitu:
+
+-   Modus
+
+    Modus adalah nilai yang paling banyak muncul. Modus digunakan sebagai tipe skala pengukuran kecenderungan memusat pada **data nominal**.
+
+-   Median
+
+    Median adalah nilai variabel dari objek yang mempunyai setengah jumlah objek di atasnya dan setengah jumlah objek di bawahnya setelah semua nilai variabel objek diurutkan dari yang terkecil sampai yang terbesar. Median digunakan sebagai tipe skala pengukuran kecenderungan memusat pada **data ordinal**.
+
+-   Mean
+
+    Mean adalah nilai rata-rata dari suatu variabel. rata-rata tersebut dihitung dengan menjumlahkan seluruh nilai pada suatu variabel dan membaginya dengan jumlah data yang ada. Mean umum digunakan untuk melihat kecenderungan memusat pada data **interval rasio**
+
+### Ukuran Persebaran Data
+
+Ukuran persebaran data adalah suatu ukuran yang memberikan suatu indikasi tingkat heterogenitas atau keragaman dalam distribusi nilai variabel. Terdapat tiga skala pengukuran yang digunakan sebagai ukuran persebaran data yaitu:
+
+-   Indeks Variansi Kualitatif
+
+    Indeks variansi kualitatif adalah rasio jumlah variasi yang diamati secara nyata dalam suatu distribusi nilai pada variasi maksimum yang dapat terjadi dalam distribusi tersebut. IQV kerap digunakan untuk melihat persebaran data pada data nominal. Indeks variansi kualitatif (IQV) dapat dihitung menggunakan rumus:
+
+    ![](images/clipboard-4179730175.png){width="326"}
+
+    dengan:
+
+    *k =* jumlah kategori
+
+    N = jumlah kasus/objek
+
+    i = jumlah kasus/objek dalam kategori i
+
+    IQV = 0 berarti bahwa tingkat heterogenitas rendah atau dapat dikatakan seragam
+
+    IQV = 1 berarti bahwa tingkat heterogenitas tinggi
+
+-   Rentang
+
+    Rentang merupakan selisih nilai variabel objek yang terbesar dan yang terkecil. Rentang digunakan untuk melihat persebaran data pada data ordinal.
+
+-   Variansi dan Standar Deviasi/Simpangan Baku
+
+    Variansi adalah nilai rata-rata kuadrat selisih nilai variabel setiap objek dengan nilai rata-rata variabel. Variansi dan standar deviasi digunakan untuk melihat persebaran data pada interval rasio. Nilai standar deviasi terkecil adalah 0 dimana semakin besar nilai variansi dan standar deviasi maka data makin bervariasi. Variansi dan standar deviasi dapat dihitung dengan rumus:
+
+    ![](images/clipboard-3998860406.png){width="403"}
+
+    Dengan:
+
+    N = jumlah data
+
+    Xi = data ke-i
+
+    X bar = rata-rata sampel/populasi
+
+## Hands-on Praktikum
+
+### Review Data
+
+Dalam praktikum ini terdapat 2 data csv yang akan digunakan untuk melatih analisis deskriptif. Kedua data tersebut merupakan bagian dari data kuesioner ojek online yang dilakukan pada tahun 2023. Adapun rincian variabel pada setiap data antara lain
+
+-   Data 1
+
+    -   id_driver
+
+    -   preferensi_merchant
+
+    -   preferensi_transportasi
+
+    -   usia
+
+    -   status_nikah
+
+    -   jml_motor
+
+    -   jml_mobil
+
+    -   jml_sepeda
+
+    ```{r}
+    data1 <- read.csv("data/data_1.csv")
+    ```
+
+-   Data 2
+
+    -   id
+
+    -   peta_acuan
+
+    -   pr_permukiman
+
+    -   pr_perkantoran
+
+    -   pr_pendidikan
+
+    -   pr_ofm (merchant makanan minuman)
+
+    -   pr_transport_umum
+
+    -   pr_taman
+
+    -   pr_hotel
+
+    -   pr_pasar_mall
+
+    -   pr_kesehatan
+
+    -   usia
+
+    -   jenis kelamin
+
+    -   status_menikah
+
+    -   pendidikan
+
+    -   jml_motor
+
+    -   jml_mobil
+
+    -   jml_sepeda
+
+    ```{r}
+    data2 <- read.csv("data/data_2.csv")
+    ```
+
+### Reduksi Tabel
+
+Dalam melakukan reduksi tabel, data yang dipakai merupakan `data_2`
+
+-   minimum, maximum, dan range pada variabel usia
+
+    ```{r}
+    min(data2$usia)
+    max(data2$usia)
+    range(data2$usia)
+    max(data2$usia) - min(data2$usia)
+    ```
+
+    untuk menyimpan hasil range dapat dilakukan dengan cara berikut
+
+    ```{r}
+    range_data2 <- max(data2$usia) - min(data2$usia)
+    range_data2
+    ```
+
+    maka variabel range_data2 akan otomatis tersimpan dan muncul pada tab environment
+
+-   Mean, Median, Modus
+
+    ```{r}
+    mean(data2$usia)
+    median(data2$jml_anggota_rt)
+    ```
+
+    ```{r}
+    #membuat function untuk mengidentifikasi setiap nilai unik pada data2
+    mode_data2 <- function(data2) {
+       uniq_data2 <- unique(data2)
+       uniq_data2[which.max(tabulate(match(data2, uniq_data2)))]
+    }
+
+    #melihat modus pada variabel posisi rumah tangga
+    mode_data2(data2$posisi_rt)
+    #melihat modus pada variabel pekerjaan selain ojek online
+    mode_data2(data2$pekerjaan_selain)
+    ```
+
+    Fungsi `mode_data2`dalam R digunakan untuk menghitung modus, yang merupakan nilai yang paling sering muncul dalam kumpulan data tertentu. Pertama, fungsi ini mengidentifikasi semua nilai unik dalam vektor pada `data2`menggunakan `unique()`fungsi tersebut. Kemudian, fungsi `match()` digunakan untuk memetakan setiap nilai dalam vektor asli ke nilai uniknya yang sesuai dan digunakan `tabulate()`untuk menghitung frekuensi setiap nilai unik. Terakhir, `which.max()`fungsi ini digunakan untuk mengidentifikasi indeks frekuensi tertinggi, dan fungsi ini mengembalikan nilai unik pada indeks tersebut sebagai modus. Intinya, fungsi ini digunakan untuk menghitung kemunculan setiap nilai dan mengembalikan nilai yang paling sering muncul.
+
+-   Standar deviasi dan varians
+
+    ```{r}
+    sd(data2$usia)
+    var(data2$usia)
+    ```
+
+-   Melihat summary
+
+    summary dilakukan sama seperti pada praktikum sebelumnya
+
+    ```{r}
+    #melihat summary pada variabel usia
+    summary(data2$usia)
+    ```
+
+    ```{r}
+    #melihat summary usia berdasarkan grouping tingkat pendidikan
+    by(data2$usia, data2$pendidikan, summary)
+    ```
+
+-   melihat summary descriptive statistics lain menggunakan pastecs
+
+    ```{r, eval=FALSE}
+    install.packages("pastecs")
+    ```
+
+    ```{r}
+    library(pastecs)
+    stat.desc(data2)
+    #syntax hanya berlaku pada variabel numerik
+    ```
+
+-   Melakukan crosstab menggunakan ctable
+
+    crosstab digunakan untuk melihat perbandingan dan persebaran antara dua variabel secara bersilangan
+
+    ```{r, eval=FALSE}
+    install.packages("summarytools")
+    ```
+
+    ```{r}
+    library(summarytools)
+
+    ctable(
+      x = data2$pendidikan,
+      y = data2$status_menikah
+    )
+    ```
+
+### Reduksi Grafik
+
+Pada praktikum sebelumnya telah dijelaskan mengenai cara mereduksi data menggunakan grafik histogram dan scatter plot. Berikut merupakan beberapa grafik yang dapat digunakan untuk melakukan reduksi data.
+
+-   Boxplot
+
+    boxplot lazim digunakan untuk melihat persebaran/distribusi dari sebuah data. Boxplot secara grafis menggambarkan distribusi variabel kuantitatif dengan menampilkan beberapa lokasi distribusi data (minimum, median, kuartil pertama/ketiga, dan maksimum) dan setiap observasi yang diklasifikasikan sebagai outlier yang diduga menggunakan kriteria rentang interkuartil (IQR).
+
+    ![](images/clipboard-2454494222.png){width="481"}
+
+    sumber gambar : LFSAB1105
+
+    ```{r}
+    boxplot(data2$jml_kendaraan_pribadi)
+    ```
+
+    boxplot juga dapat digunakan untuk membandingkan beberapa variabel untuk dilihat persebaran masing-masing datanya
+
+    ```{r}
+    #membandingkan kepemilikan mobil dan motor
+    jml_mobil <- data2$jml_mobil
+    jml_motor <- data2$jml_motor
+    jml_sepeda <- data2$jml_sepeda
+    boxplot(jml_mobil,jml_motor,
+            main = "perbandingan kepemilikan mobil dan motor",
+            ylab = "jumlah",
+            names = c("mobil","motor"))
+    ```
+
+-   pie chart
+
+    pie chart biasa digunakan untuk melihat persentase untuk suatu variabel
+
+    ```{r, eval=FALSE}
+    #install ggplot2 terlebih dahulu
+    install.packages("ggplot2")
+    ```
+
+    ```{r, fig.height=5}
+    library(ggplot2)
+    library(dplyr)
+
+    data2_summary <- data2 %>%
+      group_by(`status_menikah`) %>%
+      summarise(count = n()) %>%
+      mutate(percentage = round(count / sum(count) * 100, 1))  #menghitung persentase
+
+    ggplot(data2_summary, aes(x = "", y = count, fill = `status_menikah`)) + 
+      geom_bar(stat = "identity", width = 1) + 
+      coord_polar(theta = "y") + 
+      geom_text(aes(label = paste0(percentage, "%")), 
+                position = position_stack(vjust = 0.5)) +  # menambah label persentase
+      labs(title = "Pie Chart Status Menikah") + 
+      theme_void() +  # Remove background dan axis labels
+      theme(legend.position = "right")
+    ```
+
+-   Bar Chart untuk data categorical
+
+    ```{r}
+    library(ggplot2)
+    library(dplyr)
+
+    ggplot(data2, aes(x = `status_menikah`)) + 
+      geom_bar(fill = "lightblue", color = "black") + 
+      geom_text(stat = "count", aes(label = ..count..), vjust = -0.5) +  # Menambahkan count labels
+      labs(title = "Status Menikah", x = "Status Menikah", y = "Count") + 
+      theme_minimal()
+    ```
+
+    ```{r}
+    ggplot(data2, aes(x = `status_menikah`, fill = `jk`)) + 
+      geom_bar(position = "dodge") +  # menggunakan posisi "dodge" untuk membuat bar side by side
+      geom_text(stat = "count", aes(label = ..count..), position = position_dodge(width = 0.9), vjust = -0.5) +
+      labs(title = "Status Menikah terhadap Jenis Kelamin", 
+           x = "Status Menikah", 
+           y = "Jumlah", 
+           fill = "Jenis Kelamin") +  # menambahkan judul legend
+      theme_minimal()  # menggunakan tema minimal
+    ```
