@@ -1,0 +1,564 @@
+---
+title: "Modul 0 - Pengenalan R"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+date: "2024-09-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Modul 1 : Pengenalan R
+
+Dalam praktikum MAP II (Analitika Perkotaan) perangkat lunak yang digunakan adalah R dan RStudio. **R** merupakan bahasa pemrograman yang terkenal dan software open-source yang gratis, digunakan untuk analisis statistik dan data. Ini memiliki kemampuan yang sangat baik dalam komputasi statistik tingkat tinggi. Dengan lebih dari 18.000 paket data science tersedia (sampai September 2022), termasuk yang bersifat umum dan yang spesifik, R didukung oleh sebuah komunitas online yang sangat aktif dan suportif serta dapat beroperasi di berbagai sistem operasi. **RStudio** merupakan alat esensial bagi siapa saja yang menggunakan bahasa pemrograman R dalam pekerjaannya. Ini membantu dalam proses analisis data, mulai dari impor dan akses data, transformasi, eksplorasi, pembuatan plot, hingga pemodelan data, serta digunakan dalam pembelajaran mesin untuk melakukan prediksi berdasarkan data tersebut.
+
+## Pengenalan Dasar R Studio
+
+### Apa bedanya R dan R Studio?
+
+Secara sederhana, R seperti mesin mobil, sedangkan RStudio seperti dasbor mobil seperti yang diilustrasikan pada gambar di bawah.
+
+![](images/clipboard-265902467.png)
+
+Lebih tepatnya, R adalah bahasa pemrograman yang menjalankan komputasi, sedangkan RStudio adalah integrated development environment (IDE) yang menyediakan antarmuka dengan menambahkan banyak fitur dan alat yang nyaman. Jadi, seperti halnya memiliki akses ke speedometer, kaca spion, dan sistem navigasi yang membuat mengemudi jauh lebih mudah, menggunakan antarmuka RStudio juga membuat penggunaan R jauh lebih mudah.
+
+### R Studio Interface
+
+Buka aplikasi RStudio yang akan otomatis juga menjalankan software atau kernel R. Berikut adalah tampilan aplikasinya.
+
+![](images/clipboard-3864846755.png)
+
+Secara umum, halaman ini bisa dibagi menjadi 3 bagian utama:
+
+-   Left-area: Tabs **Console**, **Terminal**, dan **Background Jobs**
+
+-   Top-right area: Tabs **Environment**, **History**, **Connections**, dan **Tutorial**
+
+-   Bottom-right area: Tabs **Files**, **Plots**, **Packages**, **Help**, **Viewer**, and **Presentation**
+
+### Memulai Project Baru
+
+Memulai project baru penting untuk mengorganisasi file dan data yang digunakan seperti R script, plot, gambar, dan lain-lain.
+
+Buat proyek baru dengan membuka `File`tab di RStudio dan pilih `New Project...`. Kemudian tentukan apakah Anda ingin membuat proyek di direktori baru, atau di direktori yang sudah ada. Di sini kita pilih **New Directory**:
+
+![](images/clipboard-1535827921.png)
+
+terdapat beberapa pilihan tipe project yang dapat dibuat. dalam kasus ini kita memilih **New Project**
+
+![](images/clipboard-2803774892.png)
+
+Selanjutnya, kita beri nama pada proyek kita. **Create project as a subdirectory of:** menunjukkan lokasi folder tersebut di komputer. Jika kita setuju dengan lokasi tersebut, pilih **Create Project**, jika tidak, pilih **Browse** dan pilih lokasi di komputer tempat folder proyek ini akan berada. Dalam kasus ini, silakan simpan folder directory sesuai dengan cara masing-masing dalam mengatur folder praktikum. misal:
+
+**D:/Semester 3/SWK/Praktikum 0**
+
+sangat disarankan untuk memisahkan folder setiap praktikum agar memudahkan mengerjakan dan menemukan data praktikum pada praktikum-praktikum selanjutnya.
+
+![](images/clipboard-2940039531.png)
+
+Sekarang di RStudio kita melihat nama proyek tertera di pojok kanan atas layar. Kita juga melihat file .Rproj di tab Files. File apa pun yang kita tambahkan atau buat di dalam proyek ini akan muncul di tab Files.
+
+Kalian dapat menutup project pada menu **file** - **Close Project**
+
+### Console
+
+Pada tab ini, kita bisa melihat informasi mengenai versi R yang digunakan dan juga beberapa perintah dasar yang dapat dicoba. Pada akhir deskripsi tersebut, kita dapat mengetikkan kode R kita, tekan Enter, dan dapatkan hasilnya di bawah baris kode (misalnya, coba jalankan 2\*2 dan lihat apa yang terjadi). Dengan console ini kita bisa melakukan apa saja yang kita lakukan di program R lainnya, misalnya:
+
+-   Install dan load R Packages (baca lebih lanjut terkait [R Packages Tutorial: How to Download & Install R Packages \| DataCamp](https://www.datacamp.com/tutorial/r-packages-guide))
+
+-   Melakukan operasi matematika sederhana atau kompleks
+
+-   Menetapkan hasil operasi ke sebuah variabel
+
+-   Mengimpor data
+
+-   Membuat jenis objek R yang umum, seperti vektor, matriks, atau bingkai data
+
+-   Mengeksplorasi data
+
+-   Analisis statistik
+
+-   Membangun visualisasi data
+
+Namun, ketika kita menjalankan kode secara langsung di console, kode tersebut tidak disimpan untuk direproduksi lebih lanjut. Jika kita perlu (dan biasanya memang perlu) menulis kode yang dapat direproduksi untuk menyelesaikan tugas tertentu, kita harus mencatat dan menyimpannya secara teratur dalam script file, bukan di console.
+
+Kita akan segera menjelajahi cara menulis script file. Untuk saat ini, mari kita ingat bahwa Anda sebaiknya menggunakan console untuk menguji kode dan menginstal paket-paket R karena paket-paket tersebut hanya perlu diinstal satu kali.
+
+### Environment
+
+Setiap kali kita mendefinisikan variabel baru atau menetapkan ulang variabel yang sudah ada di RStudio, variabel tersebut akan disimpan sebagai objek di workspace dan ditampilkan, bersama dengan nilainya, di tab Environment di area kanan atas jendela RStudio. Coba jalankan : greeting \<- "Hello World!" di console dan lihat apa yang terjadi pada tab Environment.
+
+Hal ini juga berkaitan dengan objek yang lebih kompleks seperti dataframe. Ketika kita mengimpor data sebagai dataframe (atau membuat dataframe dari awal), kita melihat di workspace tidak hanya nama objek baru tetapi juga nilai dan tipe data dari setiap kolom. Selain itu, kita dapat menampilkan lebih banyak detail tentang setiap objek, seperti panjang dan ukuran memorinya.
+
+Pada contoh di bawah ini, kita membuat dua variabel di konsol:
+
+`greeting <- "Hello, World!"`
+
+`my_vector <- c(1, 2, 3, 4)`
+
+Perhatikan bagaimana variabel-variabel tersebut ditampilkan pada tab Environment:
+
+![](images/clipboard-1072852953.png)
+
+Kita dapat mengubah cara menampilkan variabel kita dari **List** ke **Grid** di sudut kanan atas tab. Perhatikan, bahwa sekarang kita juga bisa melihat panjang dan ukuran setiap objek.\
+Dalam mode tampilan **Grid**, kotak akan muncul di sebelah kiri setiap variabel. Kita dapat mencentang salah satu kotak tersebut dan mengklik ikon **Broom** (sapu berwarna coklat) untuk menghapus objek yang sesuai dari workspace. Jika kita mencentang kotak di sebelah kiri kolom **Name** dan mengklik ikon **Broom**, atau jika kita hanya mengklik ikon ini pada mode tampilan sebelumnya (List), kita akan membersihkan workspace kita dan menghapus semua variabel darinya.
+
+**Tabs penting lainnya**
+
+-   **Terminal** - untuk menjalankan perintah dari terminal
+
+-   **History** - untuk melacak riwayat semua operasi yang dilakukan selama sesi RStudio saat ini
+
+-   **Files** - untuk melihat struktur folder kerja, mengatur ulang folder kerja, menavigasi antar folder, dll.
+
+-   **Plots** - untuk melihat pratinjau dan mengekspor visualisasi data yang dibuat
+
+-   **Packages**- untuk memeriksa package apa saja yang dimuat dan memuat atau membongkar package (dengan menyalakan/mematikan kotak di sebelah kiri nama package)
+
+### Menulis R Script di R studio
+
+jika kita ingin mereproduksi, menggunakan kembali, atau membagikan kode kita untuk kebutuhan lebih lanjut, kita harus menuliskannya dalam script file daripada langsung di console.\
+Untuk mulai merekam script, klik **File** - **New File** - **R Script**. Ini akan membuka editor teks di sudut kiri atas interface RStudio (di atas tab Console):
+
+![](images/clipboard-3967807263.png)
+
+Dalam sebuah scirpt, kita dapat melakukan semua hal yang telah kita cantumkan pada bagian console(dan sebenarnya kita dapat melakukan hal yang sama pada IDE R yang lain), hanya saja sekarang tindakan kita akan disimpan dalam sebuah file untuk digunakan atau dibagikan. Sangat penting untuk memberikan nama yang berarti pada script file dan menyimpannya secara teratur (Ctrl + S di Windows/Linux, Cmd + S di Mac, File -\> Save di sistem operasi apa pun).
+
+Untuk menjalankan satu baris kode dari script, letakkan kursor pada baris tersebut dan klik ikon **Run** di kanan atas editor teks. Jika tidak, gunakan keyboard shortcut (Ctrl + Enter di Windows/Linux, Cmd + Enter di Mac). Untuk menjalankan beberapa baris kode, lakukan hal yang sama setelah **selecting/blok** baris yang diperlukan. Untuk menjalankan semua baris kode, select/blok semua baris dan klik ikon **Run** ATAU gunakan pintasan keyboard (Ctrl + A + Enter di Windows/Linux, Cmd + A + Enter di Mac).
+
+Ketika kita menulis script, kita dapat menambahkan **komentar kode** jika diperlukan (menggunakan simbol hashtag \# diikuti dengan baris teks komentar) untuk menjelaskan kepada pembaca tentang alasan di balik potongan kode tertentu.
+
+### Menuliskan R Markdown
+
+R Markdown adalah paket R gratis dan sumber terbuka yang menyediakan ruang kerja untuk membuat proyek *data science*. Keunggulan utama R Markdown adalah memungkinkan menggabungkan kode, teks, dan visualisasi data dalam satu dokumen yang dapat dibagikan, dan dapat direproduksi sepenuhnya yang dapat ditampilkan dalam berbagai format output, baik statis maupun interaktif.
+
+untuk membuat dokumen R markdown baru, dapat dilakukan pada menu **file** -\> **New File** -\> **R Markdown**. Kemudian kalian dapat menamai R Markdown dan menuliskan nama author. selain itu, terdapat dua mode yakni **visual** dan **source**. Kalian dapat menggunakan mode visual untuk melihat tampilan seperti dokumen.
+
+![](images/clipboard-1583472321.png)
+
+#### Formatting Teks
+
+Kalian dapat menuliskan berbagai jenis tulisan seperti dokumen pada umumnya seperti menuliskan heading, code chunk, symbol, link dan lain-lain pada R markdown dengan menuliskan simbol "**/**" pada baris baru. Selain itu, kalian juga dapat menggunakan menu pada bagian atas file R Markdown untuk formatting, menginput gambar, dan lain-lain.
+
+![](images/clipboard-2835802732.png){width="213"}
+
+#### Formatting Code
+
+-   Code Chunk
+
+    digunakan untuk memformat dan menjalankan blok kode R di R Markdown, pada mode source, code chunk ditulis dengan sepasang tanda petik tiga, dengan tanda petik tiga pertama diikuti oleh r dalam kurung kurawal. untuk menambahkan code chunk, kalian dapat mengakses **simbol +c berwarna hijau** pada bagian kanan atas R Markdown atau dengan shorcut **Ctrl + Alt + i**. Kalian dapat memilih berbagai bahasa pemrograman seperti R, Python, dll.
+
+    ```{r}
+    print("hello world")
+    ```
+
+    Untuk mengeksekusi code chunk, dapat dengan mengakses **play hijau** pada setiap code chunk atau **run** pada bagian kanan atas R markdown.
+
+-   Opsi Code Chunk
+
+    terdapat beberapa opsi code chunk yang dapat ditulis untuk menentukan opsi hasil dari code tersebut antara lain:
+
+    -   `echo=FALSE`—kode itu sendiri tidak akan ditampilkan dalam dokumen akhir, hanya outputnya.
+
+    -   `eval=FALSE`—kode dalam potongan kode tidak akan dijalankan.
+
+    -   `include=FALSE`—potongan kode akan dijalankan tetapi tidak disertakan dalam dokumen akhir.
+
+    -   `results`—nilai default adalah "markup"; nilai lainnya adalah:
+
+        -   “hide”—output kode akan disembunyikan dalam dokumen akhir
+
+        -   "hold"—output kode akan ditampilkan dengan penundaan, hanya setelah seluruh potongan kode dieksekusi
+
+        -   "asis"—output kode akan diteruskan tanpa memformat ulang.
+
+    -   `message=FALSE`—pesan yang dihasilkan oleh kode tidak akan ditampilkan.
+
+    -   `error=FALSE`—kesalahan yang dihasilkan oleh kode tidak akan ditampilkan.
+
+    -   `warning=FALSE`—peringatan yang dihasilkan oleh kode tidak akan ditampilkan.
+
+    -   `highlight=FALSE`—kode tidak akan disorot dalam dokumen akhir.
+
+    -   `prompt=TRUE`—simbol \> akan ditambahkan di awal setiap baris kode yang ditampilkan dalam dokumen akhir.
+
+    berikut merupakan contoh code yang kita tulis di R markdown dan hasilnya pada dokumen akhir
+
+    *\*asisten diperbolehkan untuk share dan menjelaskan gambar di bawah ketika praktikum dilaksanakan*
+
+    ![](images/clipboard-4230543782.png){width="467"}
+
+    output pada dokumen akhir:
+
+    ![](images/clipboard-1812818028.png)
+
+    dapat terlihat bahwa yang terlihat pada dokumen akhir hanya hasil kode (dari code chunk pertama) dan perintah (dari code chunk ketiga). sementara code chunk kedua hanya dijalankan tetapi tidak dilampirkan pada dokumen akhir.
+
+    selain itu terdapat juga opsi untuk gambar misalnya saat kita membuat plot dengan opsi sebagai berikut
+
+    -   `fig.show`—nilai default adalah "asis"; nilai lainnya adalah:
+
+        -   “hide”—plot akan dibuat tetapi tidak disertakan dalam dokumen akhir
+
+        -   "hold"—plot akan ditampilkan dengan penundaan, hanya setelah seluruh potongan kode dieksekusi
+
+        -   "animate"—semua plot potongan kode akan digabungkan menjadi animasi.
+
+    -   `fig.width`—lebar plot dalam inci, 7 secara default.
+
+    -   `fig.height`—tinggi plot dalam inci, 7 secara default.
+
+    -   `fig.align`—cara menyelaraskan plot dalam dokumen akhir, bisa "kiri", "tengah", atau "kanan".
+
+    -   `fig.cap`—keterangan gambar yang diwakili oleh rangkaian karakter.
+
+    -   `fig.path`—jalur ke direktori tempat file plot yang dibuat oleh potongan kode harus disimpan.
+
+    -   `fig.ext`—ekstensi file plot yang dibuat oleh potongan kode.
+
+    berikut merupakan contoh code yang kita tulis di R markdown dan hasilnya pada dokumen akhir
+
+    *\*asisten diperbolehkan untuk share dan menjelaskan gambar di bawah ketika praktikum dilaksanakan*
+
+    ![](images/clipboard-716962196.png){width="527"}
+
+    output pada dokumen akhir:
+
+    ![](images/clipboard-254092142.png){width="519"}
+
+### Operasi-operasi lain pada R studio
+
+Selanjutnya, kita akan membahas tindakan apa saja yang bisa kita lakukan di RStudio untuk tujuan analisis data. Sebenarnya, semua operasi yang akan kita bahas tidak hanya terkait dengan RStudio, tetapi lebih pada penggunaan R secara umum, dalam IDE apa pun. 
+
+Oleh karena itu, kita tidak akan membahas secara rinci semua detail teknis dari operasi-operasi tersebut. Sebaliknya, kita akan melihat beberapa tugas umum, implementasi praktisnya di R (contoh kode), dan pendekatan alternatif (jika ada) untuk tugas-tugas tersebut di RStudio.
+
+Salin-tempel contoh-contoh di bawah ini ke dalam console RStudio dan jelajahi hasilnya. Pertimbangkan untuk mencoba pendekatan umum dan alternatif (khusus RStudio).
+
+#### Instalasi R Package
+
+Syntax:
+
+`install.packages("package_name")`
+
+Contoh:
+
+`install.packages("tidyverse")`
+
+Di RStudio:
+
+-   Ingatlah untuk menginstal semua package di console, bukan di script file, karena paket-paket tersebut hanya perlu diinstal di hard disk komputer satu kali saja.
+
+-   Anda dapat menginstal package langsung dari interface RStudio: buka tab **Packages** (bagian kiri bawah), klik **Install** dan pilih package yang diperlukan dari **CRAN** yang dipisahkan dengan spasi atau koma, seperti berikut:
+
+    ![](images/clipboard-451772350.png)
+
+#### Loading R Package
+
+Syntax:
+
+`library(package_name)`
+
+Contoh:
+
+`library(tidyverse)`
+
+Perhatikan bahwa tanda kutip tidak digunakan untuk memuat package.
+
+Di RStudio:
+
+-   **Muat semua package yang diperlukan dalam script file**, bukan di console.
+
+-   Memuat/membongkar package terinstal atau package sistem dapat dilakukan dengan mencari dan mencentang/menghapus centang package-package tersebut pada tab **Package**. Perhatikan bahwa beberapa package tidak dapat dibongkar jika diimpor oleh package lain.
+
+#### Mengecek R Package yang terpasang
+
+Jalankan di konsol `search()` untuk mendapatkan daftar semua paket yang dimuat.
+
+Di RStudio: buka tab **Packages**, cari paket tertentu, dan cek centang kotak di sebelah kiri nama package.
+
+#### Melihat keterangan/dokumentasi R Package atau R Object
+
+Untuk mendapatkan “help” atau semacam dokumentasi pada paket yang terinstal dan dimuat, atau fungsi dari paket yang terinstal dan dimuat, atau objek R bawaan lainnya (seperti kumpulan data yang telah dimuat sebelumnya), gunakan salah satu dari sintaks berikut:
+
+`help(package_or_function_name)`
+
+atau
+
+`help("package_or_function_name")`
+
+atau
+
+`?package_or_function_name`
+
+Catatan: kita perlu memasukkan nama fungsi ke fungsi bantuan tanpa tanda kurung.
+
+Tab Help akan dibuka dengan dokumentasi package atau objek. Jika kita membuka sebuah package, maka kita akan mendapatkan daftar semua fungsi dan tautan ke dokumentasi untuk masing-masing fungsi.
+
+Sebagai contoh, jalankan perintah berikut ini pada konsol (setelah memastikan bahwa paket readr dan dplyr telah terinstal dan dimuat):
+
+`help("read.csv")`
+
+`?readr`
+
+`help(help)`
+
+`help('CO2')`
+
+Di RStudio: cari dan klik nama paket yang diinginkan (meskipun tidak dimuat) pada tab Packages dan lihat hasilnya pada tab Help.
+
+#### Import data
+
+Contoh:
+
+`world_population <- read.csv("world_population.csv")`
+
+(Untuk menjalankan kode di atas, pertama-tama, unduh [Dataset Populasi Dunia](https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download) yang tersedia untuk umum dari Kaggle dan ekstrak ke dalam folder yang sama dengan tempat Anda menyimpan R project).
+
+Hasil dari menjalankan kode di atas akan menjadi sebuah dataframe R dalam folder kerja Anda.
+
+Di RStudio:
+
+-   File - Import Dataset
+
+atau
+
+-   Klik Import Dataset pada tab Environment:
+
+    ![](images/clipboard-598659441.png)
+
+Kemudian pilih **From Text (base)**, navigasikan ke folder yang tepat, pilih file yang akan diimpor, isi atau centang bidang Name, Heading, Separator, dan Decimal pada pop-up window, preview dataset, dan klik Import:
+
+![](images/clipboard-3132851840.png)
+
+Kalian sekarang dapat menemukan dan menjelajahi set data yang diimpor di tab Environment dan di spreadsheet yang dibuka di tab baru:
+
+#### Akses Built-in dataset di R
+
+Untuk melihat daftar lengkap dataset sampel yang tersedia yang dimuat sebelumnya di R, termasuk nama dan deskripsi singkatnya, jalankan kode berikut ini di console:
+
+`data()`
+
+Anda dapat mengambil salah satu nama yang muncul dan menggunakan masing-masing nama tersebut sebagai variabel (berisi sebuah dataframe) untuk bekerja dan melatih kemampuan Anda dalam R.
+
+![](images/clipboard-1846480928.png)\
+Jika Anda membutuhkan informasi lebih lanjut tentang dataset yang telah dimuat sebelumnya, jalankan fungsi `help()` pada dataset tersebut, misalnya,`help(CO2)`.
+
+#### Data Wragling dan Analisis Sederhana di R Studio
+
+Seperti pada IDE R lainnya, di RStudio, kita dapat mengakses, memanipulasi, mentransformasi, menganalisis, dan memodelkan data dalam R. Di bawah ini adalah beberapa contoh operasi standar yang dilakukan pada dataset bawaan CO2 :
+
+```{r}
+#menampilkan 15 row pertama
+head(CO2,15)
+```
+
+```{r}
+#menampilkan 10 row terakhir
+tail(CO2,10)
+```
+
+```{r}
+#menampilkan nama kolom
+colnames(CO2)
+```
+
+```{r}
+#melihat jumlah row dan kolom
+dim(CO2)
+```
+
+```{r}
+#menampilkan struktur data
+str(CO2)
+```
+
+```{r}
+#statistik summary CO2 untuk setiap kolom
+summary(CO2)
+```
+
+```{r}
+#statisic summary kolom/variabel uptake
+summary(CO2$uptake)
+```
+
+```{r}
+#median variabel uptake
+median(CO2$uptake)
+```
+
+```{r}
+#menampilkan kelas data variabel uptake
+class(CO2$uptake)
+```
+
+```{r}
+#melihat nilai unik dari variabel treatment
+unique(CO2$Treatment)
+```
+
+```{r}
+#menampilkan subset row/beberapa row dengan nilai conc paling kecil
+subset(CO2, conc == min(CO2$conc))
+```
+
+Coba jalankan satu per satu di RStudio dan amati hasilnya.
+
+*\*asisten dapat mencontohkan beberapa dari code di atas saat praktikum*
+
+#### Plotting data di R Studio
+
+Seperti pada IDE R lainnya, di RStudio, kita dapat memplot data. Di bawah ini adalah beberapa contoh pembuatan plot sederhana untuk dataset bawaan CO2 dan Orange . Pada kedua kasus tersebut, plot yang dihasilkan muncul pada tab **Plots** dan dapat diekspor menggunakan tombol `Export` pada tab tersebut:
+
+-   Membuat [histogram](https://www.datacamp.com/tutorial/make-histogram-basic-r)
+
+    ```{r}
+    hist(CO2$uptake)
+    ```
+
+-   Membuat scatter plot
+
+    ```{r}
+    plot(Orange$age, Orange$circumference)
+    ```
+
+    Kita dapat menyetel beberapa parameter yang tersedia untuk fungsi plot() dasar untuk menambahkan beberapa estetika pada plot terakhir:
+
+    ```{r}
+    plot(Orange$age, Orange$circumference, 
+      xlab="Age", ylab="Circumference", 
+      main="Circumference vs. Age", 
+      col="blue", pch=16)
+    ```
+
+#### Membuat data from scratch
+
+Sekali lagi, dalam hal ini, RStudio tidak berbeda dengan IDE R lainnya.
+
+Untuk membuat vektor:
+
+`oceans <- c("Arctic", "Atlantic", "Indian", "Pacific", "Southern")`
+
+`avg_depth <- c(1.2, 3.65, 3.74, 3.97, 3.27)`
+
+Untuk membuat dataframe:
+
+`oceans_depth <- data.frame(oceans, avg_depth)`
+
+Print out hasil:
+
+`print(oceans_depth)`
+
+Vektor dan bingkai data yang dihasilkan, juga muncul pada tab Environment di RStudio:
+
+![](images/clipboard-1770335406.png)
+
+#### Missing data
+
+Beberapa data statistik mungkin memiliki row/variabel dengan missing data. Berikut merupakan langkah yang dapat dilakukan ketika harus mengolah dataset yang memiliki missing value. Dalam kasus ini kita akan memakai dataset **airquality**
+
+```{r}
+data(airquality)
+head(airquality)
+```
+
+missing value ditunjukkan dengan nilai **N/A** pada row
+
+-   mengecek dan menghitung missing value
+
+    ```{r}
+    is.na(airquality)
+    #nilai TRUE menunjukkan bahwa terdapat missing value
+    ```
+
+    ```{r}
+    #menghitung missing value pada variabel Ozone
+    sum(is.na(airquality$Ozone))
+    ```
+
+-   Melihat row yang memiliki missing value
+
+    ```{r}
+    rows_with_na <- airquality[!complete.cases(airquality), ]
+    print(rows_with_na)
+    ```
+
+-   Menghapus missing value
+
+    ```{r}
+    airquality_clean <- na.omit(airquality)
+    head(airquality_clean)
+    ```
+
+-   Mengganti missing dengan nilai rata-rata
+
+    ```{r}
+    airquality$Ozone[is.na(airquality$Ozone)] <- mean(airquality$Ozone, na.rm = TRUE)
+    airquality$Solar.R[is.na(airquality$Solar.R)] <- mean(airquality$Solar.R, na.rm = TRUE)
+    #na.rm = TRUE digunakan agar perhitungan rata-rata pada setiap variabel tidak mengikutsertakan row dengan missing value
+    ```
+
+#### Kategorisasi nilai
+
+Pada kasus ini akan dilakukan kategorisasi/pengelompokkan nilai berdasarkan rentang nilai tertentu menjadi kategori tertentu. Pada kasus ini akan digunakan dataset **mtcars**. Kategorisasi dapat dilakukan dengan beberapa cara berikut
+
+```{r}
+data(mtcars)
+head(mtcars)
+```
+
+-   menggunakan fungsi cut
+
+    kategorisasi dilakukan dengan syarat berikut
+
+    -   "Low" for cars with `mpg` less than or equal to 20
+
+    -   "Medium" for cars with `mpg` between 20 and 30
+
+    -   "High" for cars with `mpg` greater than 30
+
+    ```{r}
+    mtcars$mpg_category <- cut(mtcars$mpg, 
+                               breaks = c(-Inf, 20, 30, Inf), 
+                               labels = c("Low", "Medium", "High"))
+    head(mtcars[, c("mpg", "mpg_category")])
+    ```
+
+-   menggunakan fungsi mutate pada libary dplyr
+
+    ```{r}
+    library(dplyr)
+    ```
+
+    ```{r}
+    mtcars <- mutate(mtcars, mpg_category2 = case_when(mpg <= 20 ~ "Low",mpg > 20 & mpg <= 30 ~ "Medium",mpg > 30 ~ "High"))
+    head(mtcars[, c("mpg", "mpg_category", "mpg_category2")])
+    ```
+
+    ```{r}
+    #gunakan pipe operator "%>%" untuk mempermudah readability
+    mtcars <- mtcars %>%
+      mutate(mpg_category2 = case_when(
+        mpg <= 20 ~ "Low",
+        mpg > 20 & mpg <= 30 ~ "Medium",
+        mpg > 30 ~ "High"
+      ))
+    head(mtcars[, c("mpg", "mpg_category", "mpg_category2")])
+    ```
+
+#### Knit R Markdown
+
+Knit dilakukan untuk mengubah dokumen R Markdown menjadi beberapa format seperti PDF, HTML, dan lain-lain. Untuk melakukan knit dapat dengan mengakses tombol **knit** pada bagian atas setiap dokumen R markdown. Untuk mengatur format default knit dapat dengan mengubah output pada bagian atas R Markdown
+
+![](images/clipboard-2376600194.png){width="426"}
+
+untuk melakukan knit dengan format lain selain format default, dapat dilakukan dengan mengakses **dropdown** di sebelah kanan tombol **knit**. selain itu, dapat juga ditambahkan **table of content** pada dokumen hasil knit dengan menambahkan parameter sebagai berikut
+
+![](images/clipboard-616002968.png){width="403"}
+
+**toc_depth** akan membatasi sejauh mana header yang akan ditampilkan pada daftar isi, angka 3 menandakan hanya sampai header 3 yang akan dicantumkan pada daftar isi.
+
+**catatan:** untuk melakukan knit pdf diperlukan beberapa package latex yang perlu diinstal dan memakan waktu yang lama untuk menginstal package tersebut. untuk mempercepat workflow pengerjaan disarankan knit ke format html dan export ke PDF melalui browser.
